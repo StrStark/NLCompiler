@@ -1,0 +1,1 @@
+float value = 3.14; bool flag = true;

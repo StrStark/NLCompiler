@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NLCompiler.Tests/NLCompiler.Tests.csproj" />
+  <Project Path="NLCompiler/NLCompiler.csproj" />
+</Solution>
