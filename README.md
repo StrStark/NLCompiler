@@ -78,3 +78,111 @@ Compiler Course Project
 Lexical Analyzer for NL Language
 
 
+
+
+# NLCompiler – Example Outputs
+
+## Example 1
+
+**Input:**
+```nl
+int x = 10;
+```
+
+**Output:**
+```sh
+<INT, int, 1, 1>
+<IDENTIFIER, x, 1, 5>
+<ASSIGN, =, 1, 7>
+<INTEGER_LITERAL, 10, 1, 9>
+<SEMICOLON, ;, 1, 11>
+<EOF, <EOF>, 2, 1>
+```
+
+## Example 2
+
+**Input:**
+```nl
+int x = 10$ ;
+```
+
+
+**Output:**
+```sh
+
+Error [Line 1, Column 11]: Invalid character '$'
+```
+
+## Example 3
+
+**Input:**
+```nl
+float value = 3.14; bool flag = true;
+```
+
+**Output:**
+```sh
+<FLOAT, float, 1, 1>
+<IDENTIFIER, value, 1, 7>
+<ASSIGN, =, 1, 13>
+<FLOAT_LITERAL, 3.14, 1, 15>
+<SEMICOLON, ;, 1, 19>
+<BOOL, bool, 1, 21>
+<IDENTIFIER, flag, 1, 26>
+<ASSIGN, =, 1, 31>
+<BOOLEAN_LITERAL, true, 1, 33>
+<SEMICOLON, ;, 1, 37>
+<EOF, <EOF>, 1, 38>
+```
+
+## Example 4
+
+**Input:**
+```nl
+"Hello, NL!"
+```
+
+**Output:**
+```sh
+<STRING_LITERAL, Hello, NL!, 1, 1>
+<EOF, <EOF>, 1, 13>
+```
+
+## Example 5
+
+**Input:**
+```nl
+int x = 5; ## this is a comment
+x = x + 1;
+```
+
+**Output:**
+```sh
+<INT, int, 1, 1>
+<IDENTIFIER, x, 1, 5>
+<ASSIGN, =, 1, 7>
+<INTEGER_LITERAL, 5, 1, 9>
+<SEMICOLON, ;, 1, 10>
+<EOF, <EOF>, 1, 44>
+```
+
+## Example 6
+
+**Input:**
+```nl
+int x = 1; /# comment #/ x = 2;
+```
+
+**Output:**
+```sh
+<INT, int, 1, 1>
+<IDENTIFIER, x, 1, 5>
+<ASSIGN, =, 1, 7>
+<INTEGER_LITERAL, 1, 1, 9>
+<SEMICOLON, ;, 1, 10>
+<IDENTIFIER, x, 1, 26>
+<ASSIGN, =, 1, 28>
+<INTEGER_LITERAL, 2, 1, 30>
+<SEMICOLON, ;, 1, 31>
+<EOF, <EOF>, 1, 32>
+```
