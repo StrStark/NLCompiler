@@ -34,16 +34,15 @@ namespace NLCompiler
                     Tokens.Add(token);
                 }
                 while (token.Type != TokenType.EOF);
+
+                Console.WriteLine(string.Join("\n", Tokens)); // waits until all ssuring there is no exception in the syntax ... 
+                Tokens.Clear();
             }
             catch (LexerException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally // waits until all ssuring there is no exception in the syntax ... 
-            {
-                Console.WriteLine($"{Tokens.Select(x=>x.ToString())}\n");
-                Tokens.Clear();
-            }
+
         }
     }
 }
